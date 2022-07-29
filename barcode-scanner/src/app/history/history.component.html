@@ -1,0 +1,13 @@
+<h1>Barcodes Scanned:</h1>
+<mat-action-list>
+    <button 
+    mat-list-item
+    *ngFor="let message of datastore.getScans();
+        let i = index" (click)="onItemClick(i)">
+        {{message}}
+    </button>
+</mat-action-list>
+
+<button mat-raised-button color="primary" (click)="clearHistory()">
+    Clear History
+</button>

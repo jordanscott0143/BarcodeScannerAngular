@@ -1,0 +1,29 @@
+<mat-toolbar>
+  <button
+  (click)="drawer.toggle()"
+  mat-icon-button 
+  class="example-icon" 
+  aria-label="Example icon-button with menu icon">
+   <mat-icon>menu</mat-icon>
+ </button>
+ <span>{{title}}</span>
+</mat-toolbar>
+
+
+
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer mode="side" [(opened)]="isDrawerOpened">
+
+    <mat-nav-list>
+    <a mat-list-item routerLink="entry">Barcode Entry</a>
+    <a mat-list-item routerLink="history">History</a>
+    </mat-nav-list>
+
+  </mat-drawer>
+  
+  <mat-drawer-content>
+    <input type="checkbox" [(ngModel)]="isDrawerOpened">
+    <router-outlet (activate)="changeTitle($event.pageTitle)"></router-outlet>
+  </mat-drawer-content>
+
+</mat-drawer-container>
